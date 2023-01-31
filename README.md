@@ -1,7 +1,7 @@
 # Towards Realistic Crowd Simulation with Collision Avoidance Behavior Modeling
 
 > This is a minimal realization for our work *Towards Realistic Crowd Simulation with Collision Avoidance Behavior Modeling*.
-> For more details, contact me or see (the verbose realization)[https://github.com/yuzhTHU/RL4Pedsim]
+> For more details, contact me or see [the verbose realization](https://github.com/yuzhTHU/RL4Pedsim)
 
 <!-- ## TTC-MD Domain Transform Algorithm for Collision Avoidance Process Detection -->
 
