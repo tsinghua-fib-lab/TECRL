@@ -9,7 +9,8 @@ from utils.metrics import calc_TEC, find_CAP
 
 if __name__ == '__main__':
     ARGS = get_args(
-        ENV=dict(type=str, default='./dataset/GC/GC_Dataset_ped1-12685_time760-820_interp9_xrange5-25_yrange15-35.npy'),
+        ENV=dict(type=str, default='./dataset/GC/GC_Dataset_ped1-12685_time1560-1620_interp9_xrange5-25_yrange15-35.npy'),
+        # ENV=dict(type=str, default='dataset\UCY\UCY_Dataset_time162-216_timeunit0.08.npy'),
     )
     set_seed(ARGS.SEED)
 
@@ -88,7 +89,7 @@ if __name__ == '__main__':
             if not valid.any(): continue
             final = valid.nonzero()[-1, 0]
             if (final + 1 < env_imit.mask.shape[1]) and (~env_imit.mask[i, final + 1] or ~env_imit.mask[j, final + 1]): continue
-            TEC = calc_TEC(env_imit.meta_data['time_unit'], env_imit.position[i, :final+1, :], env_imit.destination[(i,), :])
+            TEC = calc_TEC(env_imit.meta_data['time_unit'], env_imit.position[i, :final+1, :], env_imit.destination[(i,), :], lambda_E=4.73e-4, lambda_W=3.30e-3, lambda_M=6.17e-1)
             TECs.append(TEC.item())
             Collision = (env_imit.raw_velocity.norm(dim=-1) > env_imit.velocity.norm(dim=-1))[i, :final+1].sum()
             Collisions.append(Collision.item())
