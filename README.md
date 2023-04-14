@@ -10,7 +10,7 @@
 
 ## Demonstrations: Simulation Results
 
-| bidirectional crowd flow | all-directional crowd flow | letter formation |
+| bidirectional crowd flow | all-directional crowd flow | letter formation (6 random letters with no meaning) |
 | --- | --- | --- |
 | ![A demonstration with bidirectional crowd flow](./assets/demo1.gif)| ![A demonstration with all-directional crowd flow](./assets/demo2.gif)| ![A demonstration of letter formation](./assets/demo3.gif) |
 
@@ -26,7 +26,8 @@ We present the simulation results for 3 different models as follows, each GIF co
 
 We can observe that:
 - Our model (left) can maneuver flexibly to avoid other pedestrians and obstacles when moving.
-- SFM (center) producing unrealistic deceleration when approaching obstacles, rather than avoid them flexibly. Since most of the commercial crowd simulators are based on SFM, they suffer from the same problem as well. Taking the [MassMotion website](https://www.arup.com/services/digital/massmotion)'s demonstration video as an example, note the pedestrian we marked with a yellow rectangle, who gets stuck in the door frame in the center of the graph. ![A demonstration of the problem in MassMotion](./assets/demo-MassMotion.gif)
+- SFM (center) producing unrealistic deceleration when approaching obstacles, rather than avoid them flexibly. Since most of the commercial crowd simulators are based on SFM, they suffer from the same problem as well. Taking the [MassMotion website](https://www.arup.com/services/digital/massmotion)'s demonstration video as an example, note the pedestrian we marked with a yellow rectangle, who gets stuck in the door frame in the center of the graph. 
+    - ![A demonstration of the problem in MassMotion](./assets/demo-MassMotion.gif)
 - PECNet (right) becomes confused after striking an obstacle, that's because its modeling does not explicitly consider collision but rather allows pedestrians to walk through obstacles and each other. Therefore, once collision is considered, PECNet (and other trajectory prediction models such as Social-LSTM, Social-GAN, and STGCNN) become confused and cannot generate natural trajectories.
 
 
